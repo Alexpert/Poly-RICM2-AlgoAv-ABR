@@ -131,9 +131,13 @@ int hauteur_arbre_r (Arbre_t a)
 
 int hauteur_arbre_nr (Arbre_t a)
 {
-  /*
-    a completer
-  */
+	if (a == NULL)
+		return 0;
+	pfile_t f = creer_file();
+
+	while (!file_vide(f)) {
+		
+	}
 
   return 0 ;
 }
@@ -145,13 +149,16 @@ void parcourir_arbre_largeur (Arbre_t a)
 	pnoeud_t c;
 	if (a == NULL)
 		return;
+
 	deposer_file(f, a);
 
 	while (!file_vide(f)) {
 		c = retirer_file(f);
 		printf("%d\n", c->cle);
-		deposer_file(f, a->fgauche);
-		deposer_file(f, a->fdroite);
+		if (a->fgauche != NULL)
+			deposer_file(f, a->fgauche);
+		if (a->droite != NULL)
+			deposer_file(f, a->fdroite);
 	}
 
   return ;
@@ -160,7 +167,9 @@ void parcourir_arbre_largeur (Arbre_t a)
 void afficher_nombre_noeuds_par_niveau (Arbre_t a)
 {
 
-return;
+
+
+	return;
 }
 
 
@@ -213,6 +222,7 @@ void imprimer_liste_cle_triee_nr (Arbre_t a)
 	ppile_t p = creer_pile();
 	Arbre_t c = a;
 	int done = 0;
+
 	while (!done) {
 		if (c != NULL) {
 			empiler(p, c);
