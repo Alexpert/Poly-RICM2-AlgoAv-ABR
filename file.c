@@ -8,17 +8,18 @@ pfile_t creer_file ()
   pfile_t pfile = malloc(sizeof(file_t));
 	pfile->tete = 0;
 	pfile->queue = 0;
+	pfile->vide = 0;
   return pfile;
 }
 
 int file_vide (pfile_t f)
 {
-  return f->tete == f->queue;
+  return f->vide;
 }
 
 int file_pleine (pfile_t f)
 {
-  return f->queue == (f->tete -1 ) % MAX_FILE_SIZE;
+  return f->queue == f->tete && !f->vide;
 }
 
 pnoeud_t retirer_file (pfile_t f)

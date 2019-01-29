@@ -141,10 +141,18 @@ int hauteur_arbre_nr (Arbre_t a)
 
 void parcourir_arbre_largeur (Arbre_t a)
 {
-  /*
-    a completer
-    Utiliser une file, voir cours
-  */
+  file_t f = creer_file();
+	pnoeud_t c;
+	if (a == NULL)
+		return;
+	deposer_file(f, a);
+
+	while (!file_vide(f)) {
+		c = retirer_file(f);
+		printf("%d\n", c->cle);
+		deposer_file(f, a->fgauche);
+		deposer_file(f, a->fdroite);
+	}
 
   return ;
 }
@@ -171,7 +179,7 @@ int nombre_cles_arbre_nr (Arbre_t a)
 	int count = 0;
 
 	empiler(stack, a);
-	while (!pile_vide(a)) {
+	while (!pile_vide(stack)) {
 		node = depiler(stack);
 		++count;
 		if (a->fgauche!= NULL)
