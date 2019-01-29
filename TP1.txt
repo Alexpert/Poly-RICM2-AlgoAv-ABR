@@ -1,0 +1,76 @@
+Bonjour,
+
+quelques précisions et informations sur le TP1 d'Algo Avancée.
+
+Le TP1 d'Algo est à rendre avant le Vendredi 8/2/2019. Vous deposerez sur
+le moodle (quand le cours sera disponible) une archive contenant le code source
+et un rapport de 3 pages décrivant le travail que vous avez effectué.
+
+Vous rendrez une archive (.tar.gz) avec les fichiers abr.c, avl.c,
+des jeux de données (fichiers avec des clés) ainsi qu'un texte
+décrivant le principe des algos que vous avez implémentés.
+
+Vous commencerez ce TP en implémentant les fonctions sur
+les piles et les files (fichiers pile.c et file.c).
+
+Vous continuerez le travail sur le fichier abr.c qui vous a été
+transmis.
+
+Vous compléterez ensuite les fonctions manquantes du fichier abr.c.
+
+- hauteur_arbre_r et hauteur_arbre_nr
+  /* calcul de la hauteur de l'arbre, récursif et non récursif*/
+
+- parcourir_arbre_largeur
+  /* afficher les noeuds de l'arbre en largeur */
+
+- afficher_nombre_noeuds_par niveau
+
+- nombre_cles_arbre_r et nombre_cles_arbre_nr
+  /* nombre de cles dans l'arbre, en recursif et en non recursif */
+  
+- detruire_cle_arbre
+  /* Retirer la cle de l'arbre a, retourner l'arbre sans cette clé */
+
+- trouver_cle_min
+  /* trouver la plus petite clé de l'arbre a, retourner la valeur de cette clé */
+
+- imprimer_liste_cle_triee
+  /* afficher les clés de l'arbre dans l'ordre croissant */
+
+- parcourir_arbre_largeur
+  /* afficher les cles de l'arbre par niveau */
+
+- intersection_deux_arbres
+  /* construire l'abre qui est l'intersection des arbres a1 et a2
+   (avec toutes les clés qui sont dans a1 et dans a2 */
+
+- union_deux_arbres
+  /* construire l'arbre qui soit l'union des clés de a1 et de a2 */
+
+- inclusion_arbre
+/* function qui dit si l'ensemble des clés de a1 est inclus dans
+  l'ensemble des clés de a2 */
+
+
+La seconde partie de ce TP est consacrée aux arbres AVL
+(cours numéro 2).
+
+Vous devez reprendre les fichiers abr.h et abr.c et les copier dans avl.h
+et avl.c
+
+1) Modifier la structure noeud pour obtenir un arbre AVL.
+(Il suffit de rajouter un champ int bal qui indique le déséquilibre)
+
+2) Programmez les différentes fonctions de rotation et d'équilibrage.
+
+3) Modifier la fonction ajouter_cle dans l'arbre a ainsi qu'éventuellement
+les fonctions qui sont appelées par ajouter_cle
+
+4) Modifier la fonction detruire_cle_arbre.
+
+
+Bien cordialement,
+
+J-F. Méhaut
+UGA-CEA/LIG
