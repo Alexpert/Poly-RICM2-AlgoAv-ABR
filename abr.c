@@ -136,7 +136,7 @@ int hauteur_arbre_nr (Arbre_t a)
 	pfile_t f = creer_file();
 
 	while (!file_vide(f)) {
-		
+
 	}
 
   return 0 ;
@@ -145,7 +145,7 @@ int hauteur_arbre_nr (Arbre_t a)
 
 void parcourir_arbre_largeur (Arbre_t a)
 {
-  file_t f = creer_file();
+  pfile_t f = creer_file();
 	pnoeud_t c;
 	if (a == NULL)
 		return;
@@ -157,7 +157,7 @@ void parcourir_arbre_largeur (Arbre_t a)
 		printf("%d\n", c->cle);
 		if (a->fgauche != NULL)
 			deposer_file(f, a->fgauche);
-		if (a->droite != NULL)
+		if (a->fdroite != NULL)
 			deposer_file(f, a->fdroite);
 	}
 
@@ -166,7 +166,33 @@ void parcourir_arbre_largeur (Arbre_t a)
 
 void afficher_nombre_noeuds_par_niveau (Arbre_t a)
 {
+	pfile_t f = creer_file();
+	pnoeud_t c;
+	int lvl = 0, count = 0;
 
+	if (a == NULL)
+		return;
+
+	deposer_file(f, a);
+	deposer_file(f, NULL);
+
+	while (!file_vide(f)) {
+		++lvl;
+		c = retirer_file(f);
+		while (c != NULL) {
+			++count;
+			if (c->fgauche)
+				deposer_file(f, c->fgauche);
+			if (c->fdroite)
+				deposer_file(f, c->fdroite);
+			c = retirer_file(f);
+		}
+		deposer_file(f, NULL);
+		printf("%d: %d\n", lvl, count);
+
+		if (lvl == 10) //TODO remove
+			break;
+	}
 
 
 	return;
@@ -316,6 +342,7 @@ int main (int argc, char**argv)
 	afficher_arbre (a,0) ;
 	printf("==================================================================\n");
 	imprimer_liste_cle_triee_nr(a);
+	afficher_nombre_noeuds_par_niveau(a);
 
   /*
      appeler les fonctions que vous
